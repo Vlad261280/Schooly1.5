@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="app_color">#F3A2E5</color>
+    <color name="app_color2">#F589E2</color>
+    <color name="app_grey">#D0D0D0</color>
+
+    <color name="greysearch">#c2c2c2</color>
+    <color name="greysteve">#AEAEAE</color>
+    <color name="greyreg">#8D8D8D</color>
+    <color name="greyregistration">#F9F9F9</color>
+    <color name="black">#171717</color>
+    <color name="white">#FFFEFE</color>
+    <color name="grey">#E2E2E2</color>
+    <color name="tl_color">#EDE6F0</color>
+    <color name="greymessages">#F7F7F7</color>
+    <color name="greytext">#656565</color>
+    <color name="greennonts">#79F542</color>
+    <color name="rednonts">#F4433D</color>
+</resources>

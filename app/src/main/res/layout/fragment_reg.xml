@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:fontFamily="@font/montserratblack"
+        android:textColor="@color/app_color"
+        android:textSize="24sp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="40dp"/>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/helloostev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hellosteve"
+        android:fontFamily="@font/montserratblack"
+        android:textColor="@color/app_color"
+        android:textSize="12sp"
+        android:layout_marginTop="42dp"
+        android:layout_marginStart="56dp"/>
+
+    <TextView
+        android:id="@+id/longtextreg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="9sp"
+        android:textColor="@color/app_grey"
+        android:fontFamily="@font/montserratblack"
+        android:layout_below="@+id/helloostev"
+        android:text="твой виртуальный помощник \nSchooly. Чтобы начать работу с\nприложением нужно пройти\nнесколько простых шагов.\nПриступим!"
+        android:layout_marginStart="56dp"/>
+
+
+    <ImageView
+        android:id="@+id/steve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/steve"
+        android:layout_toRightOf="@+id/longtextreg"
+        android:layout_marginStart="-80dp"
+        android:layout_marginTop="-80dp"/>
+
+    <TextView
+     android:id="@+id/regtext"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:paddingStart="26dp"
+     android:paddingTop="21dp"
+     android:paddingBottom="22dp"
+     android:layout_marginTop="-108dp"
+     android:layout_marginStart="40dp"
+     android:layout_marginEnd="40dp"
+     android:background="@drawable/corners30dpwhite"
+     android:textColor="@color/app_grey"
+     android:text="Ты уже есть в Schooly? Если да, то войди \nв свой аккаунт, а если нет, то \nрегестрируйся!"
+     android:textSize="10dp"
+     android:layout_below="@id/steve"
+     android:fontFamily="@font/montserratblack"/>
+
+
+
+    <Button
+        android:id="@+id/registr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/registration"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:textSize="20sp"
+        android:fontFamily="@font/montserratblack"
+        android:textColor="@color/white"
+        android:layout_below="@+id/regtext"
+        android:background="@drawable/corners10"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/enter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/enter"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:textSize="20sp"
+        android:fontFamily="@font/montserratblack"
+        android:textColor="@color/white"
+        android:layout_below="@+id/registr"
+        android:background="@drawable/corners10"
+        android:gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/belarus"
+            android:fontFamily="@font/montserratblack"
+            android:textSize="12dp"
+            android:textColor="@color/app_grey"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="24dp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

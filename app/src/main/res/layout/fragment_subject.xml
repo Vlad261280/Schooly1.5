@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp">
+
+        <ImageView
+        android:id="@+id/back_tomainsubjects"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:elevation="2dp"
+        android:layout_margin="2dp"
+        android:background="@drawable/corners14"
+        android:src="@drawable/ic_arrow___left"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_toRightOf="@+id/back_tomainsubjects"
+            android:text="@string/subjects"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            android:fontFamily="@font/montserrat_semibold"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:rowCount="2"
+            android:columnCount="2"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp">
+
+            <RelativeLayout
+                android:layout_width="136dp"
+                android:layout_height="136dp"
+                android:background="@drawable/gradient1subject"
+                android:layout_marginEnd="12dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="28dp">
+
+                <TextView
+                    android:id="@+id/myrina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/myrina"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_marginBottom="16dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/russian"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_above="@id/myrina"
+                    android:layout_marginStart="12dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="136dp"
+                android:layout_height="136dp"
+                android:background="@drawable/gradient2subject"
+                android:layout_marginStart="12dp"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="28dp">
+
+                <TextView
+                    android:id="@+id/aref"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/arefyeva"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_marginBottom="16dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/algebra"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_above="@id/aref"
+                    android:layout_marginStart="12dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="136dp"
+                android:layout_height="136dp"
+                android:background="@drawable/gradient3subject"
+                android:layout_marginEnd="12dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/kazak"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kazakow"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_marginBottom="16dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/geometry"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_above="@id/kazak"
+                    android:layout_marginStart="12dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="136dp"
+                android:layout_height="136dp"
+                android:background="@drawable/gradient4subject"
+                android:layout_marginStart="12dp"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/lapit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lapitskaya"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_marginBottom="16dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/english"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_above="@id/lapit"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="10dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="136dp"
+                android:layout_height="136dp"
+                android:background="@drawable/gradient5subject"
+                android:layout_marginEnd="12dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/isachenk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/isach"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_marginBottom="16dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fizika"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_above="@id/isachenk"
+                    android:layout_marginStart="12dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="136dp"
+                android:layout_height="136dp"
+                android:background="@drawable/gradient6subject"
+                android:layout_marginStart="12dp"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/brilevskiy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bril"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_marginBottom="16dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/geometry"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_above="@id/brilevskiy"
+                    android:layout_marginStart="12dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="136dp"
+                android:layout_height="136dp"
+                android:background="@drawable/gradient7subject"
+                android:layout_marginEnd="12dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:id="@+id/val"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/valochka"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_marginBottom="16dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bel"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_above="@id/val"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="2dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="136dp"
+                android:layout_height="136dp"
+                android:background="@drawable/gradient8subject"
+                android:layout_marginStart="12dp"
+                android:layout_columnWeight="1"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:id="@+id/praskal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/praskalovich"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_marginBottom="16dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bellit"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_above="@id/praskal"
+                    android:layout_marginStart="12dp"/>
+
+            </RelativeLayout>
+
+
+
+        </GridLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

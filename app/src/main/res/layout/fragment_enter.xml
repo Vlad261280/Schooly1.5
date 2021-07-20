@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/greyregistration">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/arrowtostartreg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow___left_2"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:id="@+id/schoolyy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:fontFamily="@font/montserratblack"
+            android:textColor="@color/app_color"
+            android:layout_toRightOf="@id/arrowtostartreg"
+            android:textSize="24sp"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="20dp"/>
+
+
+        <TextView
+            android:id="@+id/helloostev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/meetearly"
+            android:layout_below="@+id/schoolyy"
+            android:fontFamily="@font/montserratblack"
+            android:textColor="@color/app_color"
+            android:textSize="12sp"
+            android:layout_marginTop="22dp"
+            android:layout_marginStart="56dp"/>
+
+        <TextView
+            android:id="@+id/textreglong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="8sp"
+            android:textColor="@color/greysteve"
+            android:fontFamily="@font/montserratblack"
+            android:layout_below="@+id/helloostev"
+            android:layout_marginStart="56dp"
+            android:text="Скорее производи вход в\nприложение, а мне нужно\nнемного времени вспомнить,\nгде мы могли видеться."/>
+
+
+        <ImageView
+            android:id="@+id/steve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/steve"
+            android:layout_toRightOf="@+id/textreglong"
+            android:layout_marginStart="-80dp"
+            android:layout_marginTop="-50dp"/>
+
+        <RelativeLayout
+                android:id="@+id/relativep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/steve"
+                android:layout_marginTop="-110dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/corners30dp"
+                android:elevation="14dp">
+
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textColor="@color/app_color"
+                    android:textSize="36sp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="14dp"/>
+
+                <TextView
+                    android:id="@+id/phonee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/writephone"
+                    android:layout_below="@id/phone"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textColor="@color/greysteve"
+                    android:textSize="12sp"
+                    android:layout_marginStart="25dp"/>
+
+                <EditText
+                    android:id="@+id/egitnick"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/phonee"
+                    android:background="@drawable/corners5nickreg"
+                    android:textSize="14sp"
+                    android:padding="4dp"
+                    android:inputType="phone"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="90dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="23dp"
+                    android:fontFamily="@font/montserrat_bold"/>
+
+
+        </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativepass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/relativep"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/corners30dp"
+                android:elevation="14dp">
+
+                <TextView
+                    android:id="@+id/passwordenter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/password"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textColor="@color/app_color"
+                    android:textSize="36sp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="14dp"/>
+
+                <TextView
+                    android:id="@+id/passsword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/writepasswordenter"
+                    android:layout_below="@id/passwordenter"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textColor="@color/greysteve"
+                    android:textSize="12sp"
+                    android:layout_marginStart="25dp"/>
+
+                <EditText
+                    android:id="@+id/editpassworgenter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/passsword"
+                    android:inputType="textPassword"
+                    android:background="@drawable/corners5nickreg"
+                    android:textSize="14sp"
+                    android:padding="4dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="90dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="23dp"
+                    android:fontFamily="@font/montserrat_bold"/>
+
+
+
+
+            </RelativeLayout>
+
+        <TextView
+            android:id="@+id/next"
+            android:onClick="ContinueRegistartion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/next"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/app_color"
+            android:layout_below="@+id/relativepass"
+            android:background="@drawable/corners"
+            android:elevation="14dp"
+            android:gravity="center" />
+
+        <RelativeLayout
+            android:id="@+id/GoogleEnter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:gravity="center_horizontal"
+            android:background="@drawable/cornersgoogleplay">
+
+            <ImageView
+                android:id="@+id/googleicon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_google"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="11dp"/>
+
+            <TextView
+                android:id="@+id/ent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ent"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_toRightOf="@+id/googleicon"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:textColor="#00A0FF"/>
+
+            <TextView
+                android:id="@+id/from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/from"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_toRightOf="@+id/ent"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:textColor="#FF3A44"/>
+
+            <TextView
+                android:id="@+id/googleplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/googleplay"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_toRightOf="@+id/from"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:textColor="#15CF74"/>
+
+
+        </RelativeLayout>
+
+        </RelativeLayout>
+
+
+</LinearLayout>

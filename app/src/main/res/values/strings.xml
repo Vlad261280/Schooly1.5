@@ -1,0 +1,124 @@
+<resources>
+    <string name="app_name">Schooly</string>
+
+    <string name="hellosteve">Привет, я Стив</string>
+    <string name="belarus">from Belarus with love)</string>
+    <string name="startregtext">Начнем регистрацию!</string>
+    <string name="go1">Шаг 1</string>
+    <string name="whriteyournick">Введи свой ник</string>
+    <string name="go2">Шаг 2</string>
+    <string name="writephone">Укажи свой номер телефона</string>
+    <string name="go3">Шаг 3</string>
+    <string name="writepassword">Придумай пароль</string>
+    <string name="writepasswordenter">Введи пароль</string>
+    <string name="meetearly">Мы уже знакомы?</string>
+    <string name="phone">Номер</string>
+    <string name="password">Пароль</string>
+    <string name="next">Продолжить</string>
+    <string name="ent">войти</string>
+    <string name="from">через</string>
+    <string name="googleplay">Google Play</string>
+    <string name="reg">регистрация</string>
+    <string name="redact">Редактировать</string>
+
+    <string name="subscribe">Подписчики</string>
+    <string name="friends">Друзья</string>
+    <string name="looks">Образы</string>
+    <string name="wardrobe">Гардероб</string>
+    <string name="newlook">Новый образ +</string>
+
+    <string name="settings">Настройки</string>
+
+    <string name="action_delete">Delete</string>
+    <string name="action_copy">Copy</string>
+
+
+    <string name="clothes">Одежда</string>
+    <string name="shoes">Обувь</string>
+    <string name="hats">Головные уборы</string>
+    <string name="accessories">Аксессуары</string>
+
+    <string name="toolbar_news">Новости</string>
+    <string name="toolbar_people">Люди</string>
+    <string name="toolbar_profile">Профиль</string>
+    <string name="library">Библиотека</string>
+    <string name="recomindation">Рекомендации</string>
+    <string name="marks">Недавние оценки</string>
+    <string name="plus">+</string>
+
+    <string name="registration">РЕГИСТРАЦИЯ</string>
+    <string name="enter">ВОЙТИ</string>
+    <string name="zitats">Цитаты</string>
+    <string name="search">Поиск</string>
+    <string name="susriders">Подписчики</string>
+
+    <string name="editing">Редактиовать</string>
+    <string name="changeface">Изменить лицо +</string>
+    <string name="usernameediting">Никнейм</string>
+    <string name="bio">Биография</string>
+
+    <string name="nontifications">Уведомления</string>
+    <string name="lichnyechats">Личные сообщения</string>
+    <string name="group">Беседы</string>
+    <string name="profileact">Действия с профилем</string>
+    <string name="likeandsubs">(Лайки, подписки и т.д.)</string>
+    <string name="privacypolicy">Конфиденциальность</string>
+    <string name="closeaccount">Закрытый аккаунт</string>
+    <string name="support">Поддержка</string>
+    <string name="error">Сообщить о проблеме</string>
+    <string name="soobchi">Пожалуйста напиши нам
+        если ты заметил какую-то недоработку</string>
+    <string name="personaldatastring">Личные данные</string>
+    <string name="nickstring">Никнейм</string>
+    <string name="aboutapp">О приложении</string>
+    <string name="emailstring">E-mail</string>
+    <string name="passwordstrind">Пароль</string>
+    <string name="message">Сообщения</string>
+    <string name="id">id</string>
+
+    <string name="privatemessages">Личные</string>
+    <string name="groupmessages">Беседы</string>
+
+
+    <string name="subjects">Предметы</string>
+    <string name="russian">Русский язык</string>
+    <string name="myrina">Мурина Л. А.</string>
+    <string name="algebra">Алгебра</string>
+    <string name="arefyeva">Арефьева И.Г.</string>
+    <string name="geometry">Геометрия</string>
+    <string name="kazakow">Казаков В. В.</string>
+    <string name="english">Английский язык</string>
+    <string name="lapitskaya">Лапицкая Л. М.</string>
+    <string name="fizika">Физика</string>
+    <string name="isach">Исаченкова Л. А.</string>
+    <string name="geography">География</string>
+    <string name="bril">Брилевский М. Н.</string>
+    <string name="bel">Белорусский язык</string>
+    <string name="valochka">Валочка Г. М.</string>
+    <string name="bellit">Белорусская литература</string>
+    <string name="praskalovich">Праскалович В. У.</string>
+
+    <string name="searchbook">Поиск книг</string>
+    <string name="mybooks">Мои книги</string>
+    <string name="friendbooks">Книги друзей</string>
+
+    <string name="start_typing_status">Пишет</string>
+    <string name="stop_typing_status">...</string>
+
+    <string name="messages">Сообщение...</string>
+
+    <string name="shop">Магазин</string>
+    <string name="tests">Тесты</string>
+    <string name="popular">Популярные</string>
+
+
+    <string name="searchtests">Поиск тестов</string>
+    <string name="mytests">МОИ ТЕСТЫ</string>
+    <string name="schoolytests">Тесты Schooly</string>
+
+
+    <string name="num">318</string>
+    <string name="newnew">Новое</string>
+    <string name="searchitem">Поиск одежды</string>
+
+</resources>

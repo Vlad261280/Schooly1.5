@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "44838623612",
+    "project_id": "schooly-47238",
+    "storage_bucket": "schooly-47238.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44838623612:android:62fb61e1e7a3085442ecf9",
+        "android_client_info": {
+          "package_name": "com.egormoroz.schooly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "44838623612-d516phl909guc9p2f1fcfee3pslf7a1p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.egormoroz.schooly",
+            "certificate_hash": "65b8f5dd06142b26be9c2b92cc27707da54d3f1a"
+          }
+        },
+        {
+          "client_id": "44838623612-du9vom4g3h9nvkoi4ml7aseaudolkoi1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-7XafHr1DKvew_SYtvAuScWQps91gf-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "44838623612-du9vom4g3h9nvkoi4ml7aseaudolkoi1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

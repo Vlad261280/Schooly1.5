@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+            android:id="@+id/usernick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tyomaa"
+            android:textSize="20dp"
+            android:textColor="@color/app_color"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="24dp"/>
+
+
+            <ImageView
+             android:id="@+id/settingsIcon"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/ic_setting"
+             android:layout_alignParentRight="true"
+             android:layout_marginEnd="24dp"
+             android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/biography"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="крутой"
+                android:textSize="12dp"
+                android:layout_below="@+id/usernick"
+                android:textColor="@color/app_grey"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="24dp"/>
+
+            <TextView
+                android:id="@+id/redact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/redact"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:textColor="@color/app_grey"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/corners2dpstrokeappcolor"
+                android:padding="6dp"
+                android:layout_below="@id/biography"/>
+
+            <TextView
+                android:id="@+id/friends"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/friends"
+                android:textColor="@color/app_grey"
+                android:textSize="12dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="50dp"
+                android:layout_below="@+id/redact"/>
+
+            <TextView
+                android:id="@+id/subscribe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/subscribe"
+                android:textColor="@color/app_grey"
+                android:textSize="12dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_toLeftOf="@id/friends"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="48dp"
+                android:layout_below="@+id/redact"/>
+
+            <TextView
+                android:id="@+id/looks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/subscribe"
+                android:textColor="@color/app_grey"
+                android:textSize="12dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_toRightOf="@id/friends"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="48dp"
+                android:layout_below="@+id/redact"/>
+
+            <View
+                android:id="@+id/mainlookview"
+                android:layout_width="match_parent"
+                android:layout_height="384dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_below="@+id/friends"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/co30mainlook" />
+
+            <TextView
+                android:id="@+id/shielf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wardrobe"
+                android:textSize="18sp"
+                android:textColor="@color/app_color2"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_below="@id/mainlookview"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="24dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow___right"
+                android:layout_below="@id/mainlookview"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/newlook"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:padding="8dp"
+                android:background="@drawable/corners14appcolor"
+                android:layout_below="@id/shielf"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:layout_marginTop="178dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="30dp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>
