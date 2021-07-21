@@ -1,6 +1,7 @@
 package com.egormoroz.schooly.ui.main;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,13 +30,23 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
+import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCallbacks;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.sql.Time;
+import java.util.concurrent.TimeUnit;
 
 public class RegFragment extends Fragment {
     public static RegFragment newInstance(){return new RegFragment();}
@@ -48,6 +60,8 @@ public class RegFragment extends Fragment {
     EditText passwordEditText, nickNameEditText, phoneEditText;
     FirebaseDatabase database;
     DatabaseReference reference;
+    TextView continueRegistrationButton;
+    OnVerificationStateChangedCallbacks callbacks;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -58,9 +72,10 @@ public class RegFragment extends Fragment {
 //        abl.setVisibility(abl.GONE);
         ////////////Init references
         nickNameEditText = root.findViewById(R.id.egitnick);
-        passwordEditText = root.findViewById(R.id.editpassworgenter);
+        passwordEditText = root.findViewById(R.id.editpassword);
         phoneEditText = root.findViewById(R.id.editphone);
         GoogleEnter = root.findViewById(R.id.GoogleEnter);
+        continueRegistrationButton = root.findViewById(R.id.next);
         //////////Init network references
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -74,6 +89,13 @@ public class RegFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AuthorizationThrowGoogle();
+            }
+        });
+        ////////////Phone + password registration
+        continueRegistrationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RegistrationPhonePassword();
             }
         });
         return root;
@@ -123,7 +145,6 @@ public class RegFragment extends Fragment {
                     }
                 });
     }
-
     @Override
     public void onViewCreated(@Nullable View view,@NonNull Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -134,5 +155,46 @@ public class RegFragment extends Fragment {
                 ((MainActivity) getActivity()).setCurrentFragment(RegisrtationstartFragment.newInstance());
             }
         });
+    }
+    public void RegistrationPhonePassword(){
+        String nickName = String.valueOf(nickNameEditText.getText()).trim();
+        String phone = String.valueOf(phoneEditText.getText()).trim();
+        String password = String.valueOf(passwordEditText.getText()).trim();
+        if(isPhoneValid(phone))
+            Log.d(TAG, "Hello nigger");
+    }
+    boolean isPhoneValid(String phone){
+        PhoneAuthOptions options = PhoneAuthOptions.newBuilder(AuthenticationBase).
+                setPhoneNumber(phone).
+                setTimeout(30L, TimeUnit.SECONDS).
+                setActivity(getActivity()).
+                setCallbacks(callbacks).build();
+        PhoneAuthProvider.verifyPhoneNumber(options);
+        final String[] CurrentVerificationId = new String[1];
+        final PhoneAuthProvider.ForceResendingToken[] CurrentToken = new PhoneAuthProvider.ForceResendingToken[1];
+        callbacks = new OnVerificationStateChangedCallbacks() {
+            @Override
+            public void onVerificationCompleted(@NonNull @NotNull PhoneAuthCredential phoneAuthCredential) {
+                Log.d(TAG, "onVerificationCompleted:" + phoneAuthCredential);
+            }
+
+            @Override
+            public void onVerificationFailed(@NonNull @NotNull FirebaseException e) {
+                Log.d(TAG, "SMS VERIFICATION FAILED: ", e);
+            }
+            @Override
+            public void onCodeSent(@NonNull String verificationId,
+                                   @NonNull PhoneAuthProvider.ForceResendingToken token) {
+                // The SMS verification code has been sent to the provided phone number, we
+                // now need to ask the user to enter the code and then construct a credential
+                // by combining the code with a verification ID.
+                Log.d(TAG, "onCodeSent:" + verificationId);
+
+                // Save verification ID and resending token so we can use them later
+                CurrentVerificationId[0] = verificationId;
+                CurrentToken[0] = token;
+            }
+        };
+        return false;
     }
 }
