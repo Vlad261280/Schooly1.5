@@ -39,60 +39,60 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        AppBarLayout appBarLayout = findViewById(R.id.AppBarLayout);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        AppBarLayout appBarLayout = findViewById(R.id.AppBarLayout);
+//        setSupportActionBar(toolbar);
 
 //<<<<<<< Updated upstream
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() { // notifications
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Notifications", Toast.LENGTH_LONG).show();
-            }
-        });
-
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @SuppressLint("NonConstantResourceId")
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                if (item.getItemId() == R.id.nav_top_messages) {
-                    Toast.makeText(getApplicationContext(), "Messages", Toast.LENGTH_LONG).show();
-                }
-                return false;
-            }
-        });
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() { // notifications
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getApplicationContext(), "Notifications", Toast.LENGTH_LONG).show();
+//            }
+//        });
+//
+//        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+//            @SuppressLint("NonConstantResourceId")
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                if (item.getItemId() == R.id.nav_top_messages) {
+//                    Toast.makeText(getApplicationContext(), "Messages", Toast.LENGTH_LONG).show();
+//                }
+//                return false;
+//            }
+//        });
 //=======
 //>>>>>>> Stashed changes
 
         CoordinatorLayout fragmentContainer = findViewById(R.id.fragment_container);
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() { // notifications
-            @Override
-            public void onClick(View v) {
-                setCurrentFragment(NontificationFragment.newInstance());
-                CoordinatorLayout.LayoutParams coordinatorLayoutParams = (CoordinatorLayout.LayoutParams) fragmentContainer.getLayoutParams();
-                coordinatorLayoutParams.setBehavior(null);
-            }
-        });
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() { // notifications
+//            @Override
+//            public void onClick(View v) {
+//                setCurrentFragment(NontificationFragment.newInstance());
+//                CoordinatorLayout.LayoutParams coordinatorLayoutParams = (CoordinatorLayout.LayoutParams) fragmentContainer.getLayoutParams();
+//                coordinatorLayoutParams.setBehavior(null);
+//            }
+//        });
+//
+//        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+//            @SuppressLint("NonConstantResourceId")
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                if (item.getItemId() == R.id.nav_top_messages) {
+//                    setCurrentFragment(MessengerFragment.newInstance());
+//                    CoordinatorLayout.LayoutParams coordinatorLayoutParams = (CoordinatorLayout.LayoutParams) fragmentContainer.getLayoutParams();
+//                    coordinatorLayoutParams.setBehavior(null);
+//                    //   ChatActivity.open(null);
+//                }
+//                return false;
+//            }
+//        });
 
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @SuppressLint("NonConstantResourceId")
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                if (item.getItemId() == R.id.nav_top_messages) {
-                    setCurrentFragment(MessengerFragment.newInstance());
-                    CoordinatorLayout.LayoutParams coordinatorLayoutParams = (CoordinatorLayout.LayoutParams) fragmentContainer.getLayoutParams();
-                    coordinatorLayoutParams.setBehavior(null);
-                    //   ChatActivity.open(null);
-                }
-                return false;
-            }
-        });
+//        TextView toolbarTitle = findViewById(R.id.toolbar_title);
 
-        TextView toolbarTitle = findViewById(R.id.toolbar_title);
-
-        toolbarTitle.setText(getString(R.string.app_name));
-        toolbarTitle.setTextColor(getColor(R.color.app_color));
+//        toolbarTitle.setText(getString(R.string.app_name));
+//        toolbarTitle.setTextColor(getColor(R.color.app_color));
         ///////////Authorization block
         if(IsEntered())
             setCurrentFragment(MainFragment.newInstance());
@@ -107,25 +107,25 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.bottom_nav_home:
                         setCurrentFragment(MainFragment.newInstance());
-                        toolbarTitle.setText(getString(R.string.app_name));
-                        toolbarTitle.setTextColor(getColor(R.color.app_color));
-                        appBarLayout.setVisibility(View.VISIBLE);
+//                        toolbarTitle.setText(getString(R.string.app_name));
+//                        toolbarTitle.setTextColor(getColor(R.color.app_color));
+//                        appBarLayout.setVisibility(View.VISIBLE);
                         return true;
                     case R.id.bottom_nav_news:
                         setCurrentFragment(NewsFragment.newInstance());
-                        toolbarTitle.setText(getString(R.string.toolbar_news));
-                        toolbarTitle.setTextColor(getColor(R.color.black));
-                        appBarLayout.setVisibility(View.VISIBLE);
+//                        toolbarTitle.setText(getString(R.string.toolbar_news));
+//                        toolbarTitle.setTextColor(getColor(R.color.black));
+//                        appBarLayout.setVisibility(View.VISIBLE);
                         return true;
                     case R.id.bottom_nav_people:
                         setCurrentFragment(PeopleFragment.newInstance());
-                        toolbarTitle.setText(getString(R.string.toolbar_people));
-                        toolbarTitle.setTextColor(getColor(R.color.black));
-                        appBarLayout.setVisibility(View.VISIBLE);
+//                        toolbarTitle.setText(getString(R.string.toolbar_people));
+//                        toolbarTitle.setTextColor(getColor(R.color.black));
+//                        appBarLayout.setVisibility(View.VISIBLE);
                         return true;
                     case R.id.bottom_nav_profile:
                         setCurrentFragment(ProfileFragment.newInstance());
-                        appBarLayout.setVisibility(View.GONE);
+//                        appBarLayout.setVisibility(View.GONE);
                         CoordinatorLayout.LayoutParams coordinatorLayoutParams = (CoordinatorLayout.LayoutParams) fragmentContainer.getLayoutParams();
                         coordinatorLayoutParams.setBehavior(null);
                         return true;

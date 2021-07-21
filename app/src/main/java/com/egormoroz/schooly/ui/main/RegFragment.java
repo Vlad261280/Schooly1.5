@@ -54,8 +54,8 @@ public class RegFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_registration, container, false);
         BottomNavigationView bnv = getActivity().findViewById(R.id.bottomNavigationView);
         bnv.setVisibility(bnv.GONE);
-        AppBarLayout abl = getActivity().findViewById(R.id.AppBarLayout);
-        abl.setVisibility(abl.GONE);
+//        AppBarLayout abl = getActivity().findViewById(R.id.AppBarLayout);
+//        abl.setVisibility(abl.GONE);
         ////////////Init references
         nickNameEditText = root.findViewById(R.id.egitnick);
         passwordEditText = root.findViewById(R.id.editpassworgenter);

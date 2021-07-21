@@ -27,8 +27,8 @@ public class NewsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_news, container, false);
-        AppBarLayout abl=getActivity().findViewById(R.id.AppBarLayout);
-        abl.setVisibility(abl.VISIBLE);
+//        AppBarLayout abl=getActivity().findViewById(R.id.AppBarLayout);
+//        abl.setVisibility(abl.VISIBLE);
         return root;
     }
 

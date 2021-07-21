@@ -28,8 +28,8 @@ public class NontificationsFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_nontificationssettings, container, false);
         BottomNavigationView bnv = getActivity().findViewById(R.id.bottomNavigationView);
         bnv.setVisibility(bnv.GONE);
-        AppBarLayout abl=getActivity().findViewById(R.id.AppBarLayout);
-        abl.setVisibility(abl.GONE);
+//        AppBarLayout abl=getActivity().findViewById(R.id.AppBarLayout);
+//        abl.setVisibility(abl.GONE);
         return root;
     }
 

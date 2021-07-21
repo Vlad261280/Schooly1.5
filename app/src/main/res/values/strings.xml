@@ -21,6 +21,8 @@
     <string name="reg">регистрация</string>
     <string name="redact">Редактировать</string>
 
+    <string name="warning">Важно!</string>
+
     <string name="subscribe">Подписчики</string>
     <string name="friends">Друзья</string>
     <string name="looks">Образы</string>

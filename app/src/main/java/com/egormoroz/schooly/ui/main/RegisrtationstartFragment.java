@@ -37,8 +37,8 @@ public class RegisrtationstartFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_reg, container, false);
         BottomNavigationView bnv = getActivity().findViewById(R.id.bottomNavigationView);
         bnv.setVisibility(bnv.GONE);
-        AppBarLayout abl = getActivity().findViewById(R.id.AppBarLayout);
-        abl.setVisibility(abl.GONE);
+//        AppBarLayout abl = getActivity().findViewById(R.id.AppBarLayout);
+//        abl.setVisibility(abl.GONE);
         AuthBase = AuthBase.getInstance();
         RegistrationButton = root.findViewById(R.id.registr);
         EnterButton = root.findViewById(R.id.enter);

@@ -27,8 +27,8 @@ public class ProfileFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
-        AppBarLayout abl=getActivity().findViewById(R.id.AppBarLayout);
-        abl.setVisibility(abl.GONE);
+//        AppBarLayout abl=getActivity().findViewById(R.id.AppBarLayout);
+//        abl.setVisibility(abl.GONE);
         BottomNavigationView bnv = getActivity().findViewById(R.id.bottomNavigationView);
         bnv.setVisibility(bnv.VISIBLE);
         return root;

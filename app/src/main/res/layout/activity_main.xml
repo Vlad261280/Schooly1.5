@@ -7,35 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:id="@+id/AppBarLayout"
-        android:elevation="0dp">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#fbf2ff"
-            android:paddingStart="-4dp"
-            android:paddingEnd="2dp"
-            app:menu="@menu/main_top_nav"
-            app:navigationIcon="@drawable/ic_notifications"
-            app:title="@string/app_name">
-
-            <TextView
-                android:id="@+id/toolbar_title"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="20dp"
-                android:gravity="center"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-        </androidx.appcompat.widget.Toolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_main" />
 

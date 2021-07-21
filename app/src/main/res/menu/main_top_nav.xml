@@ -7,15 +7,4 @@
         android:icon="@drawable/ic_chat"
         app:showAsAction="always" />
 
-    <item
-        android:id="@+id/action_delete"
-        android:icon="@drawable/left_arrow"
-        android:title="@string/action_delete"
-        app:showAsAction="always" />
-
-    <item
-        android:id="@+id/action_copy"
-        android:icon="@drawable/ic_arrow___right"
-        android:title="@string/action_copy"
-        app:showAsAction="always" />
 </menu>

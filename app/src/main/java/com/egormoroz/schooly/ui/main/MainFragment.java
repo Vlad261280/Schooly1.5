@@ -39,8 +39,8 @@ public class MainFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
-        AppBarLayout abl = getActivity().findViewById(R.id.AppBarLayout);
-        abl.setVisibility(abl.GONE);
+//        AppBarLayout abl = getActivity().findViewById(R.id.AppBarLayout);
+//        abl.setVisibility(abl.GONE);
         BottomNavigationView bnv = getActivity().findViewById(R.id.bottomNavigationView);
         bnv.setVisibility(View.VISIBLE);
         return root;
@@ -56,7 +56,13 @@ public class MainFragment extends Fragment {
     public void onViewCreated(@Nullable View view,@NonNull Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-        ImageView gotononts=view.findViewById(R.id.nontification);
+        ImageView chat=view.findViewById(R.id.chat);
+        chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity)getActivity()).setCurrentFragment(SubjectFragment.newInstance());
+            }
+        });
 
 //        ImageView chat=view.findViewById(R.id.chat);
 //        chat.setOnClickListener(new View.OnClickListener() {
