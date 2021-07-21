@@ -58,6 +58,7 @@ public class RegFragment extends Fragment {
     final int GOOGLE_SIGN_IN = 101;
     final int Phone_Request_Code = 102;
     private static final String TAG = "###########";
+    boolean isPhoneValid = false;
     FirebaseAuth AuthenticationBase;
     GoogleSignInOptions gso;
     GoogleSignInClient signInClient;
@@ -132,6 +133,8 @@ public class RegFragment extends Fragment {
                 }
                 break;
             case Phone_Request_Code:
+                isPhoneValid = data.getExtras().getBoolean("IsPhoneValid");
+                Log.d(TAG, "is phone valid: " + isPhoneValid);
                 break;
             }
     }
@@ -179,8 +182,7 @@ public class RegFragment extends Fragment {
         Intent phoneIntent = new Intent(getActivity(), PhoneCodeActivity.class);
         phoneIntent.putExtra("Phone", phone);
         startActivityForResult(phoneIntent, Phone_Request_Code);
-
-        return false;
+        return isPhoneValid;
     }
     boolean isPasswordCorrect(String password){
         boolean digits = false, characters = true;

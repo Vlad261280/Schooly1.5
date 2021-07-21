@@ -24,13 +24,14 @@ import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.TimeUnit;
 
 public class PhoneCodeActivity extends AppCompatActivity {
+    final int Phone_Request_Code = 102;
     String TAG = "############";
     String phone;
     ImageView backButton;
     EditText SMSCode;
     ImageView continueButton;
     OnVerificationStateChangedCallbacks callbacks;
-    Intent currentIntent;
+    Intent data;
     String currentVerificationCode;
     PhoneAuthProvider.ForceResendingToken currentResendToken;
     FirebaseAuth AuthenticationBase;
@@ -41,8 +42,8 @@ public class PhoneCodeActivity extends AppCompatActivity {
         backButton = findViewById(R.id.backfromphonecode);
         SMSCode = findViewById(R.id.VerificationCode);
         continueButton = findViewById(R.id.continueButton);
-        currentIntent = getIntent();
-        phone = currentIntent.getStringExtra("Phone");
+        data = new Intent();
+        phone = getIntent().getStringExtra("Phone");
 
         AuthenticationBase = FirebaseAuth.getInstance();
         callbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -50,13 +51,17 @@ public class PhoneCodeActivity extends AppCompatActivity {
             @Override
             public void onVerificationCompleted(@NonNull @NotNull PhoneAuthCredential phoneAuthCredential) {
                 Log.d(TAG, "Verification completed with: " + phoneAuthCredential);
-                currentIntent.putExtra("phoneAuthCredential", phoneAuthCredential);
+                data.putExtra("phoneAuthCredential", phoneAuthCredential);
+                data.putExtra("IsPhoneValid", true);
+                setResult(RESULT_OK, data);
                 finish();
             }
 
             @Override
             public void onVerificationFailed(@NonNull @NotNull FirebaseException e) {
                 Log.d(TAG, "Verification failed with: " + e);
+                data.putExtra("IsPhoneValid", false);
+                setResult(RESULT_OK, data);
                 finish();
             }
 
@@ -70,20 +75,20 @@ public class PhoneCodeActivity extends AppCompatActivity {
                 // Save verification ID and resending token so we can use them later
                 currentVerificationCode = verificationId;
                 currentResendToken = token;
-
+                PhoneAuthCredential credential = PhoneAuthProvider.getCredential(currentVerificationCode, "123456");
+                while(credential.getSmsCode() == null) {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                data.putExtra("IsPhoneValid", true);
+                setResult(RESULT_OK, data);
+                finish();
             }
         };
         phoneVerification(phone);
-        continueButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String code = String.valueOf(SMSCode.getText()).trim();
-                PhoneAuthCredential credential =
-                        PhoneAuthProvider.getCredential(currentVerificationCode, code);
-                if(code.equals(credential.getSmsCode()))
-                    finish();
-            }
-        });
     }
     public void phoneVerification(String phone){
         PhoneAuthOptions options = PhoneAuthOptions.newBuilder(AuthenticationBase)
