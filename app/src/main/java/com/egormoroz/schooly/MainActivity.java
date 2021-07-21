@@ -135,11 +135,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_top_nav, menu);
         return true;
-    }
+    }*/
 
     public void setCurrentFragment(Fragment fragment) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

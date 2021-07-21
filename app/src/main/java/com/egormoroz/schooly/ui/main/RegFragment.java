@@ -1,6 +1,7 @@
 package com.egormoroz.schooly.ui.main;
 
 import android.content.Intent;
+import android.icu.text.LocaleDisplayNames;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
@@ -54,7 +55,8 @@ import static java.lang.Character.isLetter;
 public class RegFragment extends Fragment {
     public static RegFragment newInstance(){return new RegFragment();}
     int RC_SIGN_IN = 175;
-    int GOOGLE_SIGN_IN = 101;
+    final int GOOGLE_SIGN_IN = 101;
+    final int Phone_Request_Code = 102;
     private static final String TAG = "###########";
     FirebaseAuth AuthenticationBase;
     GoogleSignInOptions gso;
@@ -115,20 +117,23 @@ public class RegFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-        if (requestCode == GOOGLE_SIGN_IN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            try {
-                // Google Sign In was successful, authenticate with Firebase
-                GoogleSignInAccount account = task.getResult(ApiException.class);
-                Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
-                firebaseAuthWithGoogle(account.getIdToken());
-            } catch (ApiException e) {
-                // Google Sign In failed, update UI appropriately
-                Log.w(TAG, "Google sign in failed", e);
+        switch (requestCode) {
+            // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+            case GOOGLE_SIGN_IN:
+                Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                try {
+                    // Google Sign In was successful, authenticate with Firebase
+                    GoogleSignInAccount account = task.getResult(ApiException.class);
+                    Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
+                    firebaseAuthWithGoogle(account.getIdToken());
+                } catch (ApiException e) {
+                    // Google Sign In failed, update UI appropriately
+                    Log.w(TAG, "Google sign in failed", e);
+                }
+                break;
+            case Phone_Request_Code:
+                break;
             }
-        }
     }
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
@@ -171,37 +176,10 @@ public class RegFragment extends Fragment {
             return;
     }
     boolean isPhoneValid(String phone){
-        PhoneAuthOptions options = PhoneAuthOptions.newBuilder(AuthenticationBase).
-                setPhoneNumber(phone).
-                setTimeout(30L, TimeUnit.SECONDS).
-                setActivity(getActivity()).
-                setCallbacks(callbacks).build();
-        PhoneAuthProvider.verifyPhoneNumber(options);
-        final String[] CurrentVerificationId = new String[1];
-        final PhoneAuthProvider.ForceResendingToken[] CurrentToken = new PhoneAuthProvider.ForceResendingToken[1];
-        callbacks = new OnVerificationStateChangedCallbacks() {
-            @Override
-            public void onVerificationCompleted(@NonNull @NotNull PhoneAuthCredential phoneAuthCredential) {
-                Log.d(TAG, "onVerificationCompleted:" + phoneAuthCredential);
-            }
+        Intent phoneIntent = new Intent(getActivity(), PhoneCodeActivity.class);
+        phoneIntent.putExtra("Phone", phone);
+        startActivityForResult(phoneIntent, Phone_Request_Code);
 
-            @Override
-            public void onVerificationFailed(@NonNull @NotNull FirebaseException e) {
-                Log.d(TAG, "SMS VERIFICATION FAILED: ", e);
-            }
-            @Override
-            public void onCodeSent(@NonNull String verificationId,
-                                   @NonNull PhoneAuthProvider.ForceResendingToken token) {
-                // The SMS verification code has been sent to the provided phone number, we
-                // now need to ask the user to enter the code and then construct a credential
-                // by combining the code with a verification ID.
-                Log.d(TAG, "onCodeSent:" + verificationId);
-
-                // Save verification ID and resending token so we can use them later
-                CurrentVerificationId[0] = verificationId;
-                CurrentToken[0] = token;
-            }
-        };
         return false;
     }
     boolean isPasswordCorrect(String password){

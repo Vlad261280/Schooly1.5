@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Schooly">
         <activity android:name=".RegActivity"></activity>
+        <activity android:name=".ui.main.PhoneCodeActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
