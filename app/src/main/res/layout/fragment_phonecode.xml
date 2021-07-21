@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+
+
+
+        <ImageView
+            android:id="@+id/backfromphonecode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow___left32dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/codeissended"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/codeissended"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:textColor="@color/app_color2"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/writecode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/writecode"
+            android:layout_below="@+id/codeissended"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:textColor="@color/app_grey"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/writecode"
+            android:maxLength="6"
+            android:inputType="number"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow___right36dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="24dp"
+            android:padding="18dp"
+            android:background="@drawable/cornersgenderarrow"/>
+
+     </RelativeLayout>
+
+</LinearLayout>

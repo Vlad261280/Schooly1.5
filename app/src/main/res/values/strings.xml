@@ -21,7 +21,13 @@
     <string name="reg">регистрация</string>
     <string name="redact">Редактировать</string>
 
-    <string name="warning">Важно!</string>
+    <string name="warning">ВАЖНО!</string>
+    <string name="choosegender">Укажи свой пол</string>
+    <string name="man">МУЖСКОЙ</string>
+    <string name="woman">ЖЕНСКИЙ</string>
+
+    <string name="codeissended">Код отправлен на номер телефона</string>
+    <string name="writecode">Введи код</string>
 
     <string name="subscribe">Подписчики</string>
     <string name="friends">Друзья</string>

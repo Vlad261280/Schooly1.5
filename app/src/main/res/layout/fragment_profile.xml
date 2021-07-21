@@ -117,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/wardrobe"
                 android:textSize="18sp"
-                android:textColor="@color/app_color2"
+                android:textColor="@color/app_color"
                 android:fontFamily="@font/montserrat_bold"
                 android:layout_below="@id/mainlookview"
                 android:layout_marginTop="24dp"
@@ -130,7 +130,7 @@
                 android:layout_below="@id/mainlookview"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="24dp"
-                android:layout_marginTop="24dp"/>
+                android:layout_marginTop="26dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
