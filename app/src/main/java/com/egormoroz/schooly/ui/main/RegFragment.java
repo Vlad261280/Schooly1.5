@@ -48,6 +48,9 @@ import org.jetbrains.annotations.NotNull;
 import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
+import static java.lang.Character.isDigit;
+import static java.lang.Character.isLetter;
+
 public class RegFragment extends Fragment {
     public static RegFragment newInstance(){return new RegFragment();}
     int RC_SIGN_IN = 175;
@@ -160,8 +163,12 @@ public class RegFragment extends Fragment {
         String nickName = String.valueOf(nickNameEditText.getText()).trim();
         String phone = String.valueOf(phoneEditText.getText()).trim();
         String password = String.valueOf(passwordEditText.getText()).trim();
-        if(isPhoneValid(phone))
-            Log.d(TAG, "Hello nigger");
+        if(!isPasswordCorrect(password))
+            return;
+        if(!isNickCorrect(nickName))
+            return;
+        if(!isPhoneValid(phone))
+            return;
     }
     boolean isPhoneValid(String phone){
         PhoneAuthOptions options = PhoneAuthOptions.newBuilder(AuthenticationBase).
@@ -196,5 +203,20 @@ public class RegFragment extends Fragment {
             }
         };
         return false;
+    }
+    boolean isPasswordCorrect(String password){
+        boolean digits = false, characters = true;
+        for(char c : password.toCharArray()){
+            if(isDigit(c))
+                digits = true;
+            else if(isLetter(c))
+                characters = true;
+            else
+                return false;
+        }
+        return digits && characters && password.length() > 8;
+    }
+    boolean isNickCorrect(String nickname){
+        return true;
     }
 }
