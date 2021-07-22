@@ -53,7 +53,7 @@ public class PhoneCodeActivity extends AppCompatActivity {
     String currentVerificationCode;
     PhoneAuthProvider.ForceResendingToken currentResendToken;
     FirebaseAuth AuthenticationBase;
-    TextView timerText, errorText;
+    TextView timerText, errorText, resendCode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,9 +62,11 @@ public class PhoneCodeActivity extends AppCompatActivity {
         initData();
         initFirebase();
         sendSMS();
+        resendSMS();
         enterCode();
     }
     public void initElements(){
+        resendCode = findViewById(R.id.resendCodeTextView);
         backButton = findViewById(R.id.backfromphonecode);
         SMSCode = findViewById(R.id.VerificationCode);
         continueButton = findViewById(R.id.continueButton);
@@ -143,6 +145,8 @@ public class PhoneCodeActivity extends AppCompatActivity {
         phoneVerification(phone);
     }
     public void startTimer(){
+        resendCode.setVisibility(View.GONE);
+        resendCode.setEnabled(false);
         timer = new CountDownTimer(PhoneSMSResend, Second) {
             @Override
             public void onTick(long l) {
@@ -151,6 +155,9 @@ public class PhoneCodeActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+                timerText.setVisibility(View.GONE);
+                resendCode.setVisibility(View.VISIBLE);
+                resendCode.setEnabled(true);
                 timerText.setText("You can resend SMS");
             }
         };
@@ -205,5 +212,14 @@ public class PhoneCodeActivity extends AppCompatActivity {
                 errorText.setText("Phone number is invalid, please check it out");
                 break;
         }
+    }
+    public void resendSMS(){
+        resendCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendSMS();
+                startTimer();
+            }
+        });
     }
 }

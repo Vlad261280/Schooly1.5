@@ -28,6 +28,7 @@
 
     <string name="codeissended">Код отправлен на номер телефона</string>
     <string name="writecode">Введи код</string>
+    <string name="sendnewcode">Отправить повторно</string>
 
     <string name="subscribe">Подписчики</string>
     <string name="friends">Друзья</string>

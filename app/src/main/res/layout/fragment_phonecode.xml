@@ -38,7 +38,22 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
             android:textSize="14sp"
+            android:fontFamily="@font/montserrat_bold"
             android:layout_below="@+id/codeissended"/>
+
+        <TextView
+            android:id="@+id/resendCodeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/codeissended"
+            android:layout_marginTop="35dp"
+            android:layout_centerHorizontal="true"
+            android:text="@string/sendnewcode"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_bold"
+            android:padding="5dp"
+            android:background="@drawable/cornersnewcode"/>
 
         <TextView
             android:id="@+id/writecode"
