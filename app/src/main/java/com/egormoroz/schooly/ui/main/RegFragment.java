@@ -1,5 +1,6 @@
 package com.egormoroz.schooly.ui.main;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.icu.text.LocaleDisplayNames;
 import android.nfc.Tag;
@@ -72,38 +73,15 @@ public class RegFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_registration, container, false);
-        BottomNavigationView bnv = getActivity().findViewById(R.id.bottomNavigationView);
-        bnv.setVisibility(bnv.GONE);
-//        AppBarLayout abl = getActivity().findViewById(R.id.AppBarLayout);
-//        abl.setVisibility(abl.GONE);
+        appBarInit();
         ////////////Init references
-        nickNameEditText = root.findViewById(R.id.egitnick);
-        passwordEditText = root.findViewById(R.id.editpassword);
-        phoneEditText = root.findViewById(R.id.editphone);
-        GoogleEnter = root.findViewById(R.id.GoogleEnter);
-        continueRegistrationButton = root.findViewById(R.id.next);
+        initElements(root);
         //////////Init network references
-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-        signInClient = GoogleSignIn.getClient(getActivity(), gso);
-        AuthenticationBase = FirebaseAuth.getInstance();
-        database = FirebaseDatabase.getInstance();
+        initFirebase();
         //////////////Google Authorization
-        GoogleEnter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AuthorizationThrowGoogle();
-            }
-        });
+        GoogleAuthorization();
         ////////////Phone + password registration
-        continueRegistrationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                RegistrationPhonePassword();
-            }
-        });
+        PasswordAuthorization();
         return root;
     }
     public void setCurrentFragment(Fragment fragment) {
@@ -198,5 +176,41 @@ public class RegFragment extends Fragment {
     }
     boolean isNickCorrect(String nickname){
         return true;
+    }
+    public void initElements(View root){
+        nickNameEditText = root.findViewById(R.id.egitnick);
+        passwordEditText = root.findViewById(R.id.editpassword);
+        phoneEditText = root.findViewById(R.id.editphone);
+        GoogleEnter = root.findViewById(R.id.GoogleEnter);
+        continueRegistrationButton = root.findViewById(R.id.next);
+    }
+    public void initFirebase(){
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        signInClient = GoogleSignIn.getClient(getActivity(), gso);
+        AuthenticationBase = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+    }
+    public void GoogleAuthorization(){
+        GoogleEnter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AuthorizationThrowGoogle();
+            }
+        });
+    }
+    public void PasswordAuthorization(){
+        continueRegistrationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RegistrationPhonePassword();
+            }
+        });
+    }
+    public void appBarInit(){
+        BottomNavigationView bnv = getActivity().findViewById(R.id.bottomNavigationView);
+        bnv.setVisibility(bnv.GONE);
     }
 }

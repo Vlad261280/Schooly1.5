@@ -28,13 +28,24 @@
         android:layout_marginTop="80dp"
         android:textColor="@color/app_color2"
         android:fontFamily="@font/montserrat_bold"
-        android:textSize="18sp"/>
+        android:textSize="17sp"/>
+
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:textSize="14sp"
+            android:layout_below="@+id/codeissended"/>
 
         <TextView
             android:id="@+id/writecode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/writecode"
+            android:textSize="16sp"
             android:layout_below="@+id/codeissended"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
@@ -48,7 +59,17 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/writecode"
             android:maxLength="6"
+            android:textSize="18sp"
             android:inputType="number"/>
+
+        <TextView
+            android:id="@+id/errorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/VerificationCode"
+            android:layout_marginTop="100dp"/>
 
         <ImageView
             android:id="@+id/continueButton"
