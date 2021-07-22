@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -48,6 +49,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import org.jetbrains.annotations.NotNull;
 
 import java.sql.Time;
+import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 
 import static java.lang.Character.isDigit;
@@ -63,12 +65,11 @@ public class RegFragment extends Fragment {
     FirebaseAuth AuthenticationBase;
     GoogleSignInOptions gso;
     GoogleSignInClient signInClient;
-    RelativeLayout GoogleEnter;
-    EditText passwordEditText, nickNameEditText, phoneEditText;
     FirebaseDatabase database;
     DatabaseReference reference;
+    RelativeLayout GoogleEnter;
+    EditText passwordEditText, nickNameEditText, phoneEditText;
     TextView continueRegistrationButton;
-    OnVerificationStateChangedCallbacks callbacks;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -112,7 +113,10 @@ public class RegFragment extends Fragment {
                 break;
             case Phone_Request_Code:
                 isPhoneValid = data.getExtras().getBoolean("IsPhoneValid");
-                Log.d(TAG, "is phone valid: " + isPhoneValid);
+                String phone = String.valueOf(phoneEditText.getText()).trim();
+                String password = String.valueOf(passwordEditText.getText()).trim();
+                if(isPhoneValid)
+                    createNewEmailUser(makeEmail(phone), password);
                 break;
             }
     }
@@ -212,5 +216,31 @@ public class RegFragment extends Fragment {
     public void appBarInit(){
         BottomNavigationView bnv = getActivity().findViewById(R.id.bottomNavigationView);
         bnv.setVisibility(bnv.GONE);
+    }
+    public void createNewEmailUser(String email, String password){
+        AuthenticationBase.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "createUserWithEmail:success");
+                            FirebaseUser user = AuthenticationBase.getCurrentUser();
+                            setCurrentFragment(MainFragment.newInstance());
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(getActivity(), "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+    String makeEmail(String phone){
+        String email = "schooly";
+        for(int i = 1; i < phone.length(); i++)
+            email += phone.toCharArray()[i];
+        email += "@gmail.com";
+        return email;
     }
 }

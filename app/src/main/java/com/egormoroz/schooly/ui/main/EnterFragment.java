@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -48,6 +50,7 @@ public class EnterFragment extends Fragment {
     GoogleSignInClient signInClient;
     RelativeLayout GoogleEnter;
     FirebaseAuth AuthenticationBase;
+    TextView continueButton;
     int RC_SIGN_IN = 175;
     int GOOGLE_SIGN_IN = 101;
     private static final String TAG = "###########";
@@ -59,23 +62,13 @@ public class EnterFragment extends Fragment {
         bnv.setVisibility(bnv.GONE);
 //        AppBarLayout abl = getActivity().findViewById(R.id.AppBarLayout);
 //        abl.setVisibility(abl.GONE);
-        GoogleEnter = root.findViewById(R.id.GoogleEnter);
-
+        initElements(root);
         ////////////////Init network references
-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-        signInClient = GoogleSignIn.getClient(getActivity(), gso);
-        AuthenticationBase = FirebaseAuth.getInstance();
+        initFirebase();
         ///////////////Authorization throw google
-        GoogleEnter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AuthorizationThrowGoogle();
-            }
-        });
-
+        GoogleAuthorizationClick();
+        /////////////Simple authorization
+        PasswordPhoneAuthorizationClick();
         return root;
     }
 
@@ -124,8 +117,6 @@ public class EnterFragment extends Fragment {
                     }
                 });
     }
-
-
     @Override
     public void onViewCreated(@Nullable View view,@NonNull Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -136,5 +127,61 @@ public class EnterFragment extends Fragment {
                 ((MainActivity) getActivity()).setCurrentFragment(RegisrtationstartFragment.newInstance());
             }
         });
+    }
+    public void initElements(View root){
+        GoogleEnter = root.findViewById(R.id.GoogleEnter);
+        phoneEditText = root.findViewById(R.id.egitnick);
+        passwordEditText = root.findViewById(R.id.editpassworgenter);
+        continueButton = root.findViewById(R.id.next);
+    }
+    public void initFirebase(){
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        signInClient = GoogleSignIn.getClient(getActivity(), gso);
+        AuthenticationBase = FirebaseAuth.getInstance();
+    }
+    public void GoogleAuthorizationClick(){
+        GoogleEnter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AuthorizationThrowGoogle();
+            }
+        });
+    }
+    public void PasswordPhoneAuthorizationClick(){
+        continueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PasswordPhoneAuthorization();
+            }
+        });
+    }
+    public void PasswordPhoneAuthorization(){
+        String phone = String.valueOf(phoneEditText.getText()).trim();
+        String password = String.valueOf(passwordEditText.getText()).trim();
+        AuthenticationBase.signInWithEmailAndPassword(makeEmail(phone), password)
+                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithEmail:success");
+                            FirebaseUser user = AuthenticationBase.getCurrentUser();
+                            setCurrentFragment(MainFragment.newInstance());
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                        }
+                    }
+                });
+    }
+    String makeEmail(String phone){
+        String email = "schooly";
+        for(int i = 1; i < phone.length(); i++)
+            email += phone.toCharArray()[i];
+        email += "@gmail.com";
+        return email;
     }
 }
